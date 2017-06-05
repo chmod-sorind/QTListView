@@ -1,5 +1,6 @@
 #include "dialog.h"
 #include "ui_dialog.h"
+#include <QDebug>
 
 dialog::dialog(QWidget *parent) :
     QMainWindow(parent),
@@ -22,7 +23,19 @@ dialog::~dialog()
 void dialog::on_pushButton_clicked()
 {
     QListWidgetItem *itm = ui->listWidget->currentItem();
-    itm->setText("Test Text");
-    itm->setTextColor(Qt::red);
-    itm->setCheckState(Qt::Checked);
+    if(ui->listWidget->isItemSelected(itm))
+    {
+        if(itm->checkState() == "Qt::CheckState(Unchecked)" )
+        {
+            itm->setText("Checked");
+            itm->setTextColor(Qt::blue);
+            itm->setCheckState(Qt::Checked);
+        }
+        else if (itm->checkState() == "Qt::CheckState(Checked)")
+        {
+            itm->setText("Unchecked");
+            itm->setTextColor(Qt::red);
+            itm->setCheckState(Qt::Unchecked);
+        }
+    }
 }
