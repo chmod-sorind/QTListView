@@ -25,13 +25,13 @@ void dialog::on_pushButton_clicked()
     QListWidgetItem *itm = ui->listWidget->currentItem();
     if(ui->listWidget->isItemSelected(itm))
     {
-        if(itm->checkState() == "Qt::CheckState(Unchecked)" )
+        if(itm->checkState() == 0 )
         {
             itm->setText("Checked");
             itm->setTextColor(Qt::blue);
             itm->setCheckState(Qt::Checked);
         }
-        else if (itm->checkState() == "Qt::CheckState(Checked)")
+        else if (itm->checkState() == 2 )
         {
             itm->setText("Unchecked");
             itm->setTextColor(Qt::red);
