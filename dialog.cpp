@@ -8,7 +8,8 @@ dialog::dialog(QWidget *parent) :
 {
     ui->setupUi(this);
     for (int var = 0; var < 99; ++var)
-    {   QListWidgetItem *itm = new QListWidgetItem(QString::number(var) + " Item", ui->listWidget);
+    {
+        QListWidgetItem *itm = new QListWidgetItem(QString::number(var) + " Item", ui->listWidget);
         itm->setFlags(itm->flags()| Qt::ItemIsUserCheckable);
         itm->setCheckState(Qt::Unchecked);
     }
